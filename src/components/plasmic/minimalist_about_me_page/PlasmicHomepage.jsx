@@ -22,6 +22,7 @@ import { useScreenVariants as useScreenVariantsjVtpFiQfvoyx } from "./PlasmicGlo
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: eoegRZLK3vC9oQRMs68jaA/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: 4alWC2gj5s5R/css
+import sentences01 from './sentences-nlp-01.json';
 
 createPlasmicElementProxy;
 
@@ -53,6 +54,9 @@ function PlasmicHomepage__RenderFunc(props) {
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsjVtpFiQfvoyx()
   });
+  const words = sentences01[Math.floor(Math.random() * sentences01.length)];
+  console.log("words: " + words);
+
   return (
     <React.Fragment>
       <div className={projectcss.plasmic_page_wrapper}>
@@ -107,7 +111,7 @@ function PlasmicHomepage__RenderFunc(props) {
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ color: "#F1EDDB" }}
                       >
-                        {"{words}"}
+                        {words}
                       </span>
                     </React.Fragment>
                   </div>
@@ -184,6 +188,7 @@ function makeNodeComponent(nodeName) {
   }
   return func;
 }
+
 
 export const PlasmicHomepage = Object.assign(
   // Top-level PlasmicHomepage renders the root element
